@@ -200,6 +200,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-backend\matzip\src\main\resources\application.yml
+# Ignore application.yml that contains sensitive information
+backend/matzip/src/main/resources/application.yml
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,windows,visualstudiocode,react,java
