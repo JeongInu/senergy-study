@@ -4,10 +4,8 @@ import com.example.matzip.domain.Restaurant;
 import com.example.matzip.service.RestaurantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,14 @@ public class RestaurantController {
         log.info("call me ;)");
         return restaurantService.getAllRestaurants();
     }
+
+    @PostMapping
+    public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant restaurant) {
+        log.info("POST RESTAURANT");
+        log.info("RESTAURANT: {}", restaurant);
+        return null;
+    }
+
+
 
 }

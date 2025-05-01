@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import './AddRestaurantButton.css';
+import { addRestaurant } from '../api/restaurantApi';
 
-function AddRestaurantButton({ setRestaurants }) {
+function AddRestaurantButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
 
-  const handleAddRestaurant = () => {
+  const handleAddRestaurant = async () => {
     if (name && address) {
-      setRestaurants(prev => [
-        ...prev,
-        { id: Date.now(), name, address }
-      ]);
-      setName('');
-      setAddress('');
+      try {
+        const newRestaurant = { name, address };
+        await addRestaurant(newRestaurant);  // API 호출만 하기
+        setName('');
+        setAddress('');
+        setIsOpen(false);
+      } catch (err) {
+        console.error(err);
+        alert('맛집 추가에 실패했어요 😥');
+      }
+    } else {
+      alert('맛집 이름과 주소를 알려주세요😋');
+    }
+  };
+
+  // 모달 외부 클릭 시 모달 닫기
+  const handleBackdropClick = (e) => {
+    // 모달 내부 클릭은 제외하고, 외부 클릭만 처리
+    if (e.target === e.currentTarget) {
       setIsOpen(false);
     }
   };
@@ -21,22 +35,25 @@ function AddRestaurantButton({ setRestaurants }) {
   return (
     <div>
       <button className="add-restaurant-btn" onClick={() => setIsOpen(true)}>
-        식당 추가
+        맛집 추가
       </button>
 
       {/* 항상 렌더링, 표시 여부만 클래스 변경 */}
-      <div className={`modal-backdrop ${isOpen ? 'show' : ''}`}>
+      <div 
+        className={`modal-backdrop ${isOpen ? 'show' : ''}`} 
+        onClick={handleBackdropClick} // 배경 클릭 시 모달 닫기
+      >
         <div className="modal-content">
           <h2>새로운 맛집</h2>
           <input
             type="text"
-            placeholder="식당 이름"
+            placeholder="맛집 이름"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="식당 주소"
+            placeholder="맛집 주소"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />

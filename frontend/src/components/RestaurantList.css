@@ -1,45 +1,52 @@
 .restaurant-list {
+  margin: 20px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 10px; /* 항목들 사이에 간격 추가 */
 }
 
 .restaurant-item {
-  padding: 1rem 1.5rem;
-  border: 1px solid #f0e0d6;
-  border-radius: 12px;
-  background-color: #fffdfb;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-  text-align: left;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
 }
 
-.restaurant-item:hover {
-  transform: scale(1.02);
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  margin-left: 10px;
 }
 
-.restaurant-item h3 {
-  margin: 0 0 0.5rem 0;
-  color: #d94f30;
+.delete-btn:hover {
+  background-color: #d32f2f; /* 호버 시 색상 */
 }
 
 .empty-message {
   text-align: center;
-  color: #999;
-  font-size: 1.1rem;
-  margin-top: 2.5rem;
-  line-height: 1.6;
-  animation: fadeIn 3s ease;
+  font-size: 18px;
+  color: #777;
+  opacity: 0; /* 초기 상태에서 투명하게 */
+  animation: fadeIn 3s ease-out forwards; /* fade-in 애니메이션 추가 */
 }
 
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px); /* 아래에서 위로 올라오는 효과 */
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* 원래 위치로 */
   }
 }
