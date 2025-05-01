@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #fff4e6, #ffe0cc);
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  color: #d94f30;
+  font-size: 2rem;
+}

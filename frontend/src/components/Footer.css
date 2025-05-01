@@ -1,0 +1,29 @@
+/* Footer.css */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* 어두운 배경 */
+  color: #fff; /* 흰색 텍스트 */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.footer-text {
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px; /* 글자 간격 조정 */
+  font-size: 20px;
+  color: #f4f4f4; /* 더 부드러운 흰색 */
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-text:hover {
+  color: #ff7043;
+  transform: scale(1.05);
+}

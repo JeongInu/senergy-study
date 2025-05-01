@@ -1,0 +1,110 @@
+.add-restaurant-btn {
+  background-color: #ff7043;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-restaurant-btn:hover {
+  background-color: #e45a2b;
+}
+
+/* 모달 배경 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.7s ease;
+  z-index: 1000;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 모달 본체 */
+.modal-content {
+  background-color: #fffaf5;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 340px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.7s ease forwards;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content h2 {
+  margin-bottom: 1.2rem;
+  color: #d94f30;
+  font-size: 1.4rem;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-group button:first-of-type {
+  background-color: #ff7043;
+  color: white;
+}
+
+.button-group button:first-of-type:hover {
+  background-color: #e45a2b;
+}
+
+.button-group button:last-of-type {
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+.button-group button:last-of-type:hover {
+  background-color: #ddd;
+}
