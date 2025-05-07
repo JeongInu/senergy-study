@@ -10,4 +10,9 @@
         FROM        restaurants
     </select>
 
+    <insert id="insertRestaurant" parameterType="Restaurant">
+        INSERT INTO restaurants (restaurantid, name, address, createdat, updatedat)
+        VALUES (seq_restaurant_id.NEXTVAL, #{name}, #{address}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
 </mapper>

@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface RestaurantMapper {
     List<Restaurant> getAllRestaurants();
+    int insertRestaurant(Restaurant restaurant);
+
 }

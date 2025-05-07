@@ -27,7 +27,8 @@ public class RestaurantController {
     public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant restaurant) {
         log.info("POST RESTAURANT");
         log.info("RESTAURANT: {}", restaurant);
-        return null;
+
+        return restaurantService.insertRestaurant(restaurant) != null ? ResponseEntity.ok(restaurant) : ResponseEntity.badRequest().build();
     }
 
 
