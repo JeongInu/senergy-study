@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getAllRestaurants } from '../api/restaurantApi';
-import './RestaurantList.css';
+import './RestaurantList.css'; 
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 맛집 리스트를 가져기
   const fetchRestaurants = async () => {
     try {
+      setLoading(true);
       const data = await getAllRestaurants();
       setRestaurants(data);
     } catch (error) {
@@ -32,6 +32,22 @@ const RestaurantList = () => {
   // 컴포넌트가 마운트될 때 맛집 리스트를 가져옴
   useEffect(() => {
     fetchRestaurants();
+  }, []);
+
+  // 커스텀 이벤트 리스너 추가
+  useEffect(() => {
+    // 맛집 추가 이벤트를 감지하는 리스너
+    const handleRestaurantAdded = () => {
+      fetchRestaurants(); // 맛집 목록 다시 가져오기
+    };
+
+    // 이벤트 리스너 등록
+    window.addEventListener('restaurantAdded', handleRestaurantAdded);
+
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener('restaurantAdded', handleRestaurantAdded);
+    };
   }, []);
 
   return (

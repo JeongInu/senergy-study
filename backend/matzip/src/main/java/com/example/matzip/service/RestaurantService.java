@@ -7,5 +7,6 @@ import java.util.List;
 public interface RestaurantService {
 
    List<Restaurant> getAllRestaurants();
+   Restaurant insertRestaurant(Restaurant restaurant);
 
 }

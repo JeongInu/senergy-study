@@ -21,4 +21,11 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<Restaurant> getAllRestaurants() {
         return restaurantMapper.getAllRestaurants();
     }
+
+    @Override
+    public Restaurant insertRestaurant(Restaurant restaurant) {
+        int result = restaurantMapper.insertRestaurant(restaurant);
+        return result > 0 ? restaurant : null;
+    }
+
 }
