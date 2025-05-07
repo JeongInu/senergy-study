@@ -9,3 +9,8 @@ export const addRestaurant = async (restaurant) => {
   const response = await api.post('/restaurants', restaurant);
   return response.data;
 }
+
+export const deleteRestaurant = async (restaurantId) => {
+  const response = await api.delete(`/restaurants/${restaurantId}`);
+  return response.data;
+}
