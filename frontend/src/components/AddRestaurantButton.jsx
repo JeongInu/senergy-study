@@ -12,6 +12,11 @@ function AddRestaurantButton() {
       try {
         const newRestaurant = { name, address };
         await addRestaurant(newRestaurant);  // API 호출만 하기
+
+        // 성공적으로 추가되면 이벤트 발생
+        const event = new CustomEvent('restaurantAdded');
+        window.dispatchEvent(event);
+
         setName('');
         setAddress('');
         setIsOpen(false);
